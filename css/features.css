@@ -1,0 +1,209 @@
+.features {
+  padding: var(--spacing-lg) 0 var(--spacing-xxl) 0;
+  background: var(--white);
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(45, 90, 39, 0.2);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+  color: var(--primary-color);
+}
+
+.feature-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.feature-card h3 {
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* Individual feature card themes */
+.feature-card:nth-child(1) {
+  border-left: 4px solid var(--primary-color);
+}
+
+.feature-card:nth-child(1):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 90, 39, 0.05),
+    rgba(74, 124, 89, 0.05)
+  );
+}
+
+.feature-card:nth-child(2) {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.feature-card:nth-child(2):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 179, 66, 0.05),
+    rgba(139, 195, 74, 0.05)
+  );
+}
+
+.feature-card:nth-child(3) {
+  border-left: 4px solid var(--accent-color);
+}
+
+.feature-card:nth-child(3):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(102, 187, 106, 0.05),
+    rgba(129, 199, 132, 0.05)
+  );
+}
+
+.feature-card:nth-child(4) {
+  border-left: 4px solid var(--warm-color);
+}
+
+.feature-card:nth-child(4):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.05),
+    rgba(129, 199, 132, 0.05)
+  );
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .feature-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* Animation for feature cards */
+.feature-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.feature-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.feature-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Icon animations */
+.feature-icon {
+  transition: transform var(--transition-normal);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Gradient text for feature titles */
+.feature-card h3 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover h3 {
+  background-size: 200% 200%;
+  animation: gradientShift 2s ease infinite;
+}
+
+/* Card content animation */
+.feature-card p {
+  transition: color var(--transition-normal);
+}
+
+.feature-card:hover p {
+  color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+  .features {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .feature-card {
+    padding: var(--spacing-lg);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+
+  .feature-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}

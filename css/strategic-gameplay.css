@@ -1,0 +1,244 @@
+.strategic-gameplay {
+  padding: var(--spacing-xxl) 0;
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+}
+
+.strategic-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.strategic-image {
+  flex: 0 0 auto;
+  max-width: 156px;
+  order: 2;
+}
+
+.strategic-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+}
+
+.strategic-image img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.strategic-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  flex: 3;
+  order: 1;
+}
+
+.strategic-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.strategic-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+}
+
+.strategic-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.strategic-feature:hover::before {
+  opacity: 0.05;
+}
+
+.feature-icon {
+  background: var(--gradient-primary);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.strategic-feature:hover .feature-icon {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-content {
+  flex: 1;
+  z-index: 1;
+  position: relative;
+}
+
+.feature-content h3 {
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.feature-content p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Individual feature themes */
+.strategic-feature:nth-child(1) .feature-icon {
+  background: var(--gradient-primary);
+}
+
+.strategic-feature:nth-child(2) .feature-icon {
+  background: var(--gradient-secondary);
+}
+
+.strategic-feature:nth-child(3) .feature-icon {
+  background: var(--gradient-accent);
+}
+
+.strategic-feature:nth-child(4) .feature-icon {
+  background: var(--gradient-warm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .strategic-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .strategic-image {
+    max-width: 120px;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .strategic-features {
+    order: 1;
+    grid-template-columns: 1fr;
+  }
+
+  .strategic-feature {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .feature-icon {
+    align-self: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .strategic-features {
+    max-width: none;
+  }
+}
+
+/* Animation for strategic features */
+.strategic-feature {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.strategic-feature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.strategic-feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.strategic-feature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.strategic-feature:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Feature icon pulse animation */
+.feature-icon {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.strategic-feature:hover .feature-icon {
+  animation: none;
+}
+
+/* Content hover effects */
+.feature-content h3 {
+  transition: color var(--transition-normal);
+}
+
+.strategic-feature:hover .feature-content h3 {
+  color: var(--primary-color);
+}
+
+.feature-content p {
+  transition: color var(--transition-normal);
+}
+
+.strategic-feature:hover .feature-content p {
+  color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .strategic-image {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .strategic-gameplay {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .strategic-image {
+    max-width: 80px;
+  }
+
+  .strategic-feature {
+    padding: var(--spacing-md);
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

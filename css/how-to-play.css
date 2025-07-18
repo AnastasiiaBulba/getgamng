@@ -1,0 +1,256 @@
+.how-to-play {
+  padding: var(--spacing-xxl) 0;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.how-to-play-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.how-to-play-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.how-to-play-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+}
+
+.how-to-play-image img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.instructions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.instruction-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  background: var(--white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.instruction-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+}
+
+.instruction-step:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.instruction-step:hover::before {
+  opacity: 0.05;
+}
+
+.step-number {
+  background: var(--gradient-primary);
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  z-index: 1;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.instruction-step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.step-content {
+  flex: 1;
+  z-index: 1;
+  position: relative;
+}
+
+.step-content h3 {
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.step-content p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* Individual step themes */
+.instruction-step:nth-child(1) .step-number {
+  background: var(--gradient-primary);
+}
+
+.instruction-step:nth-child(2) .step-number {
+  background: var(--gradient-secondary);
+}
+
+.instruction-step:nth-child(3) .step-number {
+  background: var(--gradient-accent);
+}
+
+.instruction-step:nth-child(4) .step-number {
+  background: var(--gradient-warm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .how-to-play-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .how-to-play-image {
+    max-width: 280px;
+    order: -1;
+    margin: 0 auto;
+  }
+
+  .instruction-step {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .step-number {
+    align-self: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .instructions-grid {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Animation for instruction steps */
+.instruction-step {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.instruction-step:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.instruction-step:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.instruction-step:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.instruction-step:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Step number pulse animation */
+.step-number {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.instruction-step:hover .step-number {
+  animation: none;
+}
+
+/* Content hover effects */
+.step-content h3 {
+  transition: color var(--transition-normal);
+}
+
+.instruction-step:hover .step-content h3 {
+  color: var(--primary-color);
+}
+
+.step-content p {
+  transition: color var(--transition-normal);
+}
+
+.instruction-step:hover .step-content p {
+  color: var(--dark-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .how-to-play-image {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 360px) {
+  .how-to-play {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .how-to-play-image {
+    max-width: 200px;
+  }
+
+  .instruction-step {
+    padding: var(--spacing-lg);
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Alternative layout for larger screens */
+@media (min-width: 768px) {
+  .instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .instructions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
