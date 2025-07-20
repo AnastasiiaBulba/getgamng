@@ -140,7 +140,7 @@ function buildFooter() {
                                     <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                            <span>1234 Main Street, Calgary, Alberta T2P 1J9, Canada</span>
+                            <span>101 9 Ave SW, Calgary, Alberta T2P 1J9, Canada</span>
                         </div>
                     </div>
                 </div>

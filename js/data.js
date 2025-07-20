@@ -134,8 +134,8 @@ const siteData = {
   contact: {
     email: "connection@getgamng.com",
     phone: "+1 (403) 333-4545",
-    address: "1234 Main Street, Calgary, Alberta T2P 1J9, Canada",
-    mapLocation: "1234 Main Street, Calgary, Alberta T2P 1J9, Canada",
+    address: "101 9 Ave SW, Calgary, Alberta T2P 1J9, Canada",
+    mapLocation: "101 9 Ave SW, Calgary, Alberta T2P 1J9, Canada",
   },
 };
 
